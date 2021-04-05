@@ -6,6 +6,9 @@ const app = express(); // initialize our app variable w/ express
 // Connect Database
 connectDB();
 
+// Init Middleware
+app.use(express.json({ extended: false }));
+
 app.get('/', (req, res) => res.send('API Running'));
 // creates a single endpoint "/" to test if our API works
 // the user makes a get request to (go into) this page & we'll put in a callback function => res.send()
