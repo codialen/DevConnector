@@ -11,6 +11,7 @@ const connectDB = async () => {
       useNewUrlParser: true,
       useUnifiedTopology: true,
       useCreateIndex: true,
+      useFindAndModify: false,
     });
 
     console.log('MongoDB Connected...'); // So we know that Mongoose is connected to MongoDB
