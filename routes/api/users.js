@@ -6,6 +6,7 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const config = require('config');
 const { check, validationResult } = require('express-validator');
+const normalize = require('normalize-url');
 
 const User = require('../../models/User');
 
@@ -41,11 +42,14 @@ router.post(
           .json({ errors: [{ msg: 'User already exists' }] });
       }
 
-      const avatar = gravatar.url(email, {
-        s: '200', // set size string to 200
-        r: 'pg', // pg rating
-        d: 'mm', // gives default image/user icon if no gravatar exists
-      });
+      const avatar = normalize(
+        gravatar.url(email, {
+          s: '200', // set size string to 200
+          r: 'pg', // pg rating
+          d: 'mm', // gives default image/user icon if no gravatar exists
+        }),
+        { forceHttps: true }
+      );
 
       user = new User({
         // create user isntance from the User Schema
