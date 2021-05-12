@@ -1,6 +1,6 @@
 # devconnector
 
-Social network for developers (MERN stack = MongoDB + Express + React + Node.js). Redux is used for a state management.
+Social network for developers (MERN stack = MongoDB + Express + React + Node). Redux is used for a state management.
 
 Live demo is [here](https://morning-coast-99420.herokuapp.com/).
 
